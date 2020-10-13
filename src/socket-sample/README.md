@@ -11,5 +11,8 @@ sendto(bytes, flag) : Gửi dữ liệu qua UDP
 close() : Đóng một kết nối 
 ```
 
+### Flow
+![img_flow](images/sockets-tcp-flow.webp)
+
 ### Demo
 ![img](images/test.png)
