@@ -37,10 +37,10 @@ def handler_host_port():
         client.connect((HOST, PORT))
         while True:
             try:
-                x = input('->')
-                if '' != x:
-                    print('Send : ', x)
-                    client.send(x.encode('utf-8'))
+                msg = input('->')
+                if '' != msg:
+                    print('Send : ', msg)
+                    client.sendall(bytes(msg, "utf8"))
             except KeyboardInterrupt as key:
                 print('Shutting down.')
                 client.close()

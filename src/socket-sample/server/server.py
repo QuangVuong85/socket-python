@@ -43,15 +43,13 @@ def handler_host_port():
             while True:
                 data = conn.recv(1024)
                 if not data:
-                    break
-                else:
                     print('-' * 20)
-                    print(data.decode('utf-8'))
-                conn.sendall(data)
+                    print('Shutting down...')
+                    print('Done')
+                    break
 
-    print('-' * 20)
-    print('Shutting down...')
-    print('Done')
+                print('-' * 20)
+                print(data.decode('utf-8'))
 
 
 def main():
