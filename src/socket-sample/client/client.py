@@ -29,8 +29,27 @@ def handler():
         print('Done')
 
 
+def handler_host_port():
+    HOST = '127.0.0.1'
+    PORT = 65432
+
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client:
+        client.connect((HOST, PORT))
+        while True:
+            try:
+                x = input('->')
+                if '' != x:
+                    print('Send : ', x)
+                    client.send(x.encode('utf-8'))
+            except KeyboardInterrupt as key:
+                print('Shutting down.')
+                client.close()
+                break
+
+
 def main():
-    handler()
+    # handler()
+    handler_host_port()
 
 
 if __name__ == '__main__':
